@@ -23,7 +23,7 @@ namespace Services
         {
             while (true)
             {
-                yield return new WaitForSecondsRealtime(180);
+                yield return new WaitForSecondsRealtime(1);
                 _IConfigDataPlayer.RecalculateTime();
             }
         }

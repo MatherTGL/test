@@ -39,7 +39,7 @@ namespace Player
             _ITimeControl = new TimeControl();
             _IMoneyControl = new MoneyControl();
 
-            _ITimeControl.Initialization();
+            _ITimeControl.Initialization(configDataPlayer);
             _IMoneyControl.Initialization(_IMoneyControl, configDataPlayer);
         }
 
@@ -48,12 +48,12 @@ namespace Player
 
         void IConfigDataPlayer.RecalculateTime() => _ITimeControl.RecalculateTime(_timeCurrentMonth, _timeCurrentYear);
 
-        public static void AddMonthTime()
+        void IConfigDataPlayer.AddMonthTime()
         {
             Debug.Log("Added Month");
         }
 
-        public static void AddYearTime()
+        void IConfigDataPlayer.AddYearTime()
         {
             Debug.Log("Added Year");
         }
