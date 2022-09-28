@@ -5,7 +5,7 @@ namespace Time_Control
 {
     public sealed class TimeControl : ITimeControl
     {
-        private IConfigDataPlayer _IConfigDataPlayer;
+        private static IConfigDataPlayer _IConfigDataPlayer;
 
 
         void ITimeControl.Initialization(in IConfigDataPlayer configDataPlayer)
@@ -17,10 +17,10 @@ namespace Time_Control
         void ITimeControl.RecalculateTime(in byte month, in short year)
         {
             Debug.Log("Recalculate Start");
-
+            _IConfigDataPlayer.AddYearTime();
             //Будут вызываться от условий
-            AddMonthTime();
-            AddYearTime();
+            // AddMonthTime();
+            // AddYearTime();
         }
 
         private void AddMonthTime()

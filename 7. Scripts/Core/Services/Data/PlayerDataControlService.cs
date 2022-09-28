@@ -14,6 +14,7 @@ namespace Services
         private void Awake()
         {
             _IConfigDataPlayer = new ConfigDataPlayerEditor();
+            Debug.Log(_IConfigDataPlayer);
             _IConfigDataPlayer.Initialization(_IConfigDataPlayer);
         }
 

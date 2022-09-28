@@ -5,7 +5,7 @@ namespace Bank
     public interface IBank
     {
         void Initialization(in IMoneyControl moneyControl);
-        void TakeLoan(double amountBorrowedMoney);
-        void RepayLoad(double amountMoneyDiscarded);
+        void TakeLoan(in double amountBorrowedMoney);
+        void RepayLoan(in double amountMoneyDiscarded);
     }
 }

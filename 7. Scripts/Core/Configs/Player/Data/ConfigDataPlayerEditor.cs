@@ -16,31 +16,31 @@ namespace Player
         [BoxGroup("Parameters/Time")]
         private short _timeCurrentYear;
 
-        private ITimeControl _ITimeControl;
+        private static ITimeControl _ITimeControl;
         #endregion
 
         #region Money
         [BoxGroup("Parameters/Resources")]
         private double _currentMoneyPlayer;
 
-        private IMoneyControl _IMoneyControl;
+        private static IMoneyControl _IMoneyControl;
         #endregion
 
 
         void IConfigDataPlayer.Initialization(in IConfigDataPlayer configDataPlayer)
         {
             Debug.Log("Начало инициализации TimeControl");
-            StartInitialization(configDataPlayer);
-            Debug.Log("Конец инициализации TimeControl");
-        }
-
-        private void StartInitialization(in IConfigDataPlayer configDataPlayer)
-        {
+            
             _ITimeControl = new TimeControl();
             _IMoneyControl = new MoneyControl();
 
+            Debug.Log(_ITimeControl);
+            Debug.Log(_IMoneyControl);
+
             _ITimeControl.Initialization(configDataPlayer);
             _IMoneyControl.Initialization(_IMoneyControl, configDataPlayer);
+
+            Debug.Log("Конец инициализации TimeControl");
         }
 
 
@@ -65,11 +65,13 @@ namespace Player
         void IConfigDataPlayer.AddMoney(in double amount)
         {
             _currentMoneyPlayer += amount;
+            Debug.Log(_currentMoneyPlayer);
         }
 
         void IConfigDataPlayer.ReduceMoney(in double amount)
         {
             _currentMoneyPlayer -= amount;
+            Debug.Log(_currentMoneyPlayer);
         }
 
         #endregion
